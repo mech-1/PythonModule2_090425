@@ -36,6 +36,12 @@ n = 12
 ### Решение задачи
 
 ```python
-# TODO: you code here...
+cost = float(input("cost: "))
+quantity = int(input("quantity: "))
+i = 1
+while i <= quantity:
+    summa = i * cost
+    print(f'{i} {summa} рублей')
+    i += 1
 ```
 
