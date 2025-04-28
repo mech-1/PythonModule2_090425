@@ -2,3 +2,11 @@
 # Вывести на экран сумму всех положительных элементов кратных двум.
 
 # TODO: your code here
+numbers = [-21, 82, -60, 89, -52, -78, 1, -60, 22, -23]
+summa = 0
+
+for number in numbers:
+    if number > 0 and number % 2 == 0:
+        summa += number
+
+print(f'Сумма всех положительных элементов кратных двум = {summa}')
