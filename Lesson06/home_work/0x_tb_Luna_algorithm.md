@@ -19,7 +19,17 @@
 ```python
 # TODO: you code here...
 ```
+card_number = input('Enter your card number: ')
+total = 0
 
+for i, digit in enumerate(card_number, 1):
+    if i % 2 != 0:
+        digit = int(digit) * 2
+        total += digit if digit < 10 else digit - 9
+    else:
+        total += int(digit)
+
+print('Да') if total % 10 == 0 else print('Нет')
 ---
 
 ### Подсказки
