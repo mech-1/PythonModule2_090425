@@ -22,7 +22,16 @@
 ```python
 # TODO: you code here...
 ```
+number = int(input("Enter a number: "))
 
+while True:
+    if number % 2 == 0:
+        number //= 2
+    else:
+        number = 3 * number + 1
+    print(number)
+    if number == 1:
+        break
 ---
 
 
