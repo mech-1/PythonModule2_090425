@@ -24,7 +24,23 @@
 ```python
 # TODO: you code here...
 ```
+# text = 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam xyZ'
+text = input("Введите строку на английском языке: ")
+alphabet_list = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+encrypted_text = ''
 
+for char in text:
+    upper_char = False
+    if char.isupper():
+        upper_char = True
+    if char.lower() in alphabet_list:
+        i = alphabet_list.index(char.lower())
+        i = i + 3 if i + 3 < len(alphabet_list) else i + 3 - len(alphabet_list)
+        encrypted_text += alphabet_list[i].upper() if upper_char else alphabet_list[i]
+    else:
+        encrypted_text += char
+
+print(f'Строка, зашифрованная кодом Цезаря: {encrypted_text}')
 ---
 
 
