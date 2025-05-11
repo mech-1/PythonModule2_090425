@@ -3,6 +3,7 @@
 # Каждая ячейка массива должна представлять собой либо "дерево", либо "пустое пространство".
 # Используйте random.random() для определения, будет ли в ячейке дерево или нет.
 # Визуализируйте сгенерированный лес, например, выводя символы "T" для деревьев и "." для пустых пространств.
+import random
 
 # Пример результата:
 forest = [['.', 'T', '.', '.', 'T', '.', '.', 'T', '.', '.'],
@@ -15,3 +16,16 @@ forest = [['.', 'T', '.', '.', 'T', '.', '.', 'T', '.', '.'],
           ['.', 'T', '.', 'T', '.', '.', 'T', '.', '.', '.'],
           ['T', '.', '.', '.', '.', 'T', '.', 'T', '.', '.'],
           ['.', '.', 'T', '.', 'T', '.', '.', '.', 'T', '.']]
+
+
+def random_forest_simulation(row: int, column: int) -> list[list]:
+    forest_global = []
+    for i in range(row):
+        forest_row = []
+        for j in range(column):
+            forest_row.append('T' if random.random() < 0.5 else '.')
+        forest_global.append(forest_row)
+    return forest_global
+
+
+print(f"Вывод случайного леса: \n{random_forest_simulation(10, 10)}")
