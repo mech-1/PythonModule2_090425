@@ -34,8 +34,15 @@ n = 6
 ### Решение задачи
 
 ```python
+import os
+
 n = int(input("n: "))
-# TODO: you code here...
+path = os.path.join('data','pyramid.txt')
+line = '*'
+with open(path, 'w', encoding="UTF-8") as f:
+    for i in range(1, n + 1):
+        f.write(f"{line:^{n * 2}}\n")
+        line += "**".
 ```
 
 ---
