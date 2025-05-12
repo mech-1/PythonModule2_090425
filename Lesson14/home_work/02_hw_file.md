@@ -16,11 +16,18 @@
 ### Решение задачи
 
 ```python
-summa = 0
-with open("data/info.txt", "r") as f:
-    pass
+import os.path
 
-print(f"Сумма чисел = {summa}")
+summa = 0
+path = os.path.join('data', 'info.txt')
+path_out = os.path.join('data', 'info_out.txt')
+with open(path, 'r', encoding='UTF-8') as f:
+    for line in f:
+        if line.strip().isnumeric() or (line[0] == '-' and line[1:].strip().isdigit()):
+            summa += int(line)
+print(f"Сумма всех чисел = {summa}")
+with open(path_out, 'w', encoding='UTF-8') as f:
+    f.write(f"Сумма всех чисел = {summa}")
 # Уточнение: в сумму добавляем только те значения, которые можно преобразовать к int'у
 # Например: int("-26") --> -26, а int("--26") --> ошибка
 ```
