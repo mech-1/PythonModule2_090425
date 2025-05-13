@@ -22,10 +22,29 @@
 ### Решение задачи
 
 ```python
-# TODO: you code here...
-```
+import os
+from pathlib import Path
+from pprint import pprint
 
----
+path = os.path.join('data', 'fruits.txt')
+DIR = "data"
+fruits = {}
+
+with open(path, 'r', encoding="UTF-8") as f:
+    for line in f:
+        fruit_name = line.strip()
+        if fruit_name:
+            first_letter = fruit_name[0]
+            x = fruits.setdefault(first_letter, [])
+            x.append(fruit_name)
+            fruits[first_letter] = x
+    # pprint(fruits)
+
+for first_letter, fruit_names in fruits.items():
+    path_out = Path(DIR, "fruits_" + first_letter)
+    with open(path_out, "w", encoding="UTF-8") as f:
+        for fruit_name in fruit_names:
+            f.write(fruit_name + "\n")
 
 ### Подсказки
 
