@@ -24,3 +24,12 @@
 # Первое окно: [1, 3, 2]. Среднее = (1 + 3 + 2) / 3 = 2
 # Второе окно: [3, 2, 6]. Среднее = (3 + 2 + 6) / 3 = 3.67
 # Третье окно: [2, 6, -1]. Среднее = (2 + 6 + (-1)) / 3 = 2.33
+def moving_average(data: list, window_size: int) -> float:
+    windows_count = len(data) - window_size + 1
+    for i in range(windows_count):
+        yield sum(data[i: (i + window_size)]) / window_size
+        # yield sum(data[i * window_size: (i + 1) * window_size]) / window_size
+
+
+data = [1, 3, 2, 6, -1, 4, 1, 8, 2]
+print(list(moving_average(data, 3)))
