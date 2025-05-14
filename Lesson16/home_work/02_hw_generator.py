@@ -16,6 +16,16 @@
 # 2. Длина каждого сгенерированного пароля должна быть равна значению параметра length.
 # 3. Функция должна быть реализована как генераторная функция, использующая ключевое слово yield для возврата каждого сгенерированного пароля.
 # 4. Генератор должен быть способен генерировать неограниченное количество паролей (пока его запрашивают).
+import string
+from random import choice
 
-def generate_random_password(length: int, chars: str):
-    pass
+
+def generate_random_password(length: int, chars: str) -> str:
+    password = ""
+    for _ in range(length):
+        password += choice(chars)
+    yield password
+
+
+print(list(generate_random_password(10, ''.join(string.ascii_letters + string.digits + string.punctuation))))
+print(list(generate_random_password(10, "abc!@#sdfghzxcvbnyt@1234567890")))
