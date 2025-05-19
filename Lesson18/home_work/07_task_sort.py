@@ -11,3 +11,12 @@
 # 10 1 3 4 3 5 6 7 7 6 1
 # Выход
 # 5
+data = [randint(1, 10) for _ in range(10)]
+data.insert(0, 10)
+print("Число участников и их результаты = ", data)
+results = data[1:]
+winners = sorted(results, reverse=True)
+print("Отсортированные результаты участников  = ", winners)
+winners_uniq = sorted(set(results))[-3:]
+print("Три максимальных результата = ", winners_uniq)
+print(f"Кол-во призеров олимпиады = {len([x for x in results if x in winners_uniq])}")
