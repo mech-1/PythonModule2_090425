@@ -24,3 +24,18 @@
 # Первое окно: [1, 3, 2]. Среднее = (1 + 3 + 2) / 3 = 2
 # Второе окно: [3, 2, 6]. Среднее = (3 + 2 + 6) / 3 = 3.67
 # Третье окно: [2, 6, -1]. Среднее = (2 + 6 + (-1)) / 3 = 2.33
+def moving_average(data: list, window_size: int) -> float:
+    if len(data) < window_size:
+        raise ValueError(f"Error: Window size ({window_size}) is bigger than data length ({len(data)})")
+    windows_count = len(data) - window_size + 1
+    for i in range(windows_count):
+        yield sum(data[i: (i + window_size)]) / window_size
+
+if __name__ == '__main__':
+    data = [1, 3, 2, 6, -1, 4, 1, 8, 2]
+    print(f"Исходный список: {data}")
+    try:
+        print(f"Windows size = 3 \n{list(moving_average(data, 3))}")
+        print(f"Windows size = 13 \n{list(moving_average(data, 13))}")
+    except ValueError as e:
+        print(e)
