@@ -5,8 +5,7 @@
 # и False в противном случае.
 
 def is_millennium_start(year: int) -> bool:
-    # Допишите код здесь
-    return False
+    return year % 1000 == 1
 
 # Пример использования
 year1 = 2001
